@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HomeLi.Contracts\HomeLi.Contracts.csproj" />
+    <ProjectReference Include="..\HomeLi.Entities\HomeLi.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
