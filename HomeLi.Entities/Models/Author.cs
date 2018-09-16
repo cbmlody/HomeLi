@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeLi.Entities.Models
 {
-    public class Author
+    public class Author : IEntity
     {
         [Key]
-        public Guid AuthorId { get; set; }
+        [Column("AuthorId")]
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(60, ErrorMessage = "First name can't be longer than 60 chars.")]

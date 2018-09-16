@@ -1,12 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeLi.Entities.Models
 {
-    public class Book
+    public class Book : IEntity
     {
         [Key]
-        public Guid BookId { get; set; }
+        [Column("BookId")]
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Title is Required.")]
         [StringLength(120, ErrorMessage = "Tittle can't be longer than 120 chars.")]

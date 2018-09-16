@@ -41,8 +41,10 @@ namespace HomeLi.Extensions
 
         public static void ConfigureMsSQLContext(this IServiceCollection services, IConfiguration config)
         {
-            var connectionString = config["mssqlconnection:HomeLi.Dev"];
-            services.AddDbContext<LibraryContext>(o => o.UseSqlServer(connectionString));
+            var connectionString = config["mssqlconnection:default"];
+            services.AddDbContext<LibraryContext>(
+                o => o.UseSqlServer(connectionString,
+                    b => b.MigrationsAssembly("HomeLi.Entities")));
         }
 
         public static void ConfigureRepositoryWrapper(this IServiceCollection services)

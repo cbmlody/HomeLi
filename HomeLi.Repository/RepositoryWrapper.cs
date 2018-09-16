@@ -5,7 +5,7 @@ namespace HomeLi.Repository
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {
-        private LibraryContext _libraryContext;
+        private readonly LibraryContext _libraryContext;
         private IAuthorRepository _author;
         private IBookRepository _book;
         private ISerieRepository _serie;

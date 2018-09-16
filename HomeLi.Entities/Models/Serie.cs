@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeLi.Entities.Models
 {
-    public class Serie
+    public class Serie : IEntity
     {
         [Key]
-        public Guid SerieId { get; set; }
+        [Column("SerieId")]
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Serie must have a title.")]
         [StringLength(120, ErrorMessage = "Title can't have more than 120 chars.")]
