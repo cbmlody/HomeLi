@@ -112,7 +112,7 @@ namespace HomeLi.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside CreateAuthor action: {ex.Message}");
-                return StatusCode(500, "Internal server error.");
+                return StatusCode(500, "Internal server error");
             }
         }
 
