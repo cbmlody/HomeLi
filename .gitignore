@@ -215,6 +215,10 @@ UpgradeLog*.htm
 *.mdf
 *.ldf
 
+# SonarQube
+.sonarqube/
+.sonarlint/
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
