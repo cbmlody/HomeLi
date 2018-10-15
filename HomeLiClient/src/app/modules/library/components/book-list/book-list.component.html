@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Book list</h1>
+</div>
+<div class="list-group-flush nano-content mr-2">
+    
+  <a *ngFor="let book of bookList" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col-1">
+        <i class="fas fa-journal-whills" style="font-size:4em;"></i>
+      </div>
+      <div class="col-11">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{ book.title }}</h5>
+          <small>{{ book.pages }} pages</small>
+        </div>
+        <small>{{ book.author }}</small>
+        <div class="d-flex w-100 justify-content-between">
+          <p class="mb-1">{{ book.description }}</p>
+          <small><i class="far fa-star"></i></small>
+        </div>
+      </div>
+    </div>
+  </a>
+    
+</div>
