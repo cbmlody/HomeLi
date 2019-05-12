@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 node ('HomeLiBuild') {
     stage('Fetch') {
         git url: 'https://github.com/cbmlody/HomeLi.git'
