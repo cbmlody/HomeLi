@@ -19,8 +19,8 @@ pipeline{
         }
         stage("Build") {
             steps{
-                ehco "------ start scanner ------"
-                sh './dotnet-sonarscanenr begin /k:"homeli"'
+                echo "------ start scanner ------"
+                sh './dotnet-sonarscanner begin /k:"homeli"'
                 echo "------ starting Build ------"
                 sh 'dotnet build HomeLi.sln'
                 echo "------ scanner end ------"
