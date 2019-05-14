@@ -19,12 +19,16 @@ pipeline{
         }
         stage("Build") {
             steps{
+                echo "------ get scanner ------"
+                sh 'dotnet tool install --tool-path . dotnet-sonarscanner'
                 echo "------ start scanner ------"
                 sh './dotnet-sonarscanner begin /k:"homeli"'
                 echo "------ starting Build ------"
                 sh 'dotnet build HomeLi.sln'
                 echo "------ scanner end ------"
                 sh './dotnet-sonarscanner end'
+                echo "------ scanner cleanup ------"
+                sh 'dotnet tool uninstall --tool-path . dotnet-sonarscanner'
             }
             post{
                 success{
