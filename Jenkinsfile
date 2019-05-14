@@ -1,19 +1,20 @@
 #!/usr/bin/env groovy
 
-node ('HomeLiBuild') {
+node {
     stage('Fetch') {
-        git url: 'https://github.com/cbmlody/HomeLi.git'
+        git credentialsId: 'github-cbmlody', url: 'git@github.com:cbmlody/HomeLi.git'
 
         sh 'dotnet restore'
     }
     stage('Build backend') {
-        sh 'dotnet sonarscanner begin /k:"homeli"'
-        sh 'dotnet build HomeLi.sln'
-        sh 'dotnet sonarscanner end'
-    }
-    stage('Build frontend') {
-        sh 'cd HomeLiClient'
-        sh 'npm install'
-        sh 'ng build --prod'
+        steps {
+            sh 'dotnet sonarscanner begin /k:"homeli"'
+        }
+        steps {
+            sh 'dotnet build HomeLi.sln'
+        }
+        steps {
+            sh 'dotnet sonarscanner end'
+        }
     }
 }
