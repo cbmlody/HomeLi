@@ -7,14 +7,8 @@ node {
         sh 'dotnet restore'
     }
     stage('Build backend') {
-        steps {
-            sh 'dotnet sonarscanner begin /k:"homeli"'
-        }
-        steps {
-            sh 'dotnet build HomeLi.sln'
-        }
-        steps {
-            sh 'dotnet sonarscanner end'
-        }
+        sh 'dotnet sonarscanner begin /k:"homeli"'
+        sh 'dotnet build HomeLi.sln'
+        sh 'dotnet sonarscanner end'
     }
 }
