@@ -48,6 +48,7 @@ namespace HomeLi.Entities.Migrations
                     Title = table.Column<string>(maxLength: 120, nullable: false),
                     AuthorId = table.Column<Guid>(nullable: false),
                     SerieId = table.Column<Guid>(nullable: true),
+                    SeriesId = table.Column<Guid>(nullable: true),
                     ISBN = table.Column<string>(maxLength: 13, nullable: true)
                 },
                 constraints: table =>
@@ -60,8 +61,8 @@ namespace HomeLi.Entities.Migrations
                         principalColumn: "AuthorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Books_Series_SerieId",
-                        column: x => x.SerieId,
+                        name: "FK_Books_Series_SeriesId",
+                        column: x => x.SeriesId,
                         principalTable: "Series",
                         principalColumn: "SerieId",
                         onDelete: ReferentialAction.Restrict);
@@ -73,9 +74,9 @@ namespace HomeLi.Entities.Migrations
                 column: "AuthorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Books_SerieId",
+                name: "IX_Books_SeriesId",
                 table: "Books",
-                column: "SerieId");
+                column: "SeriesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Series_AuthorId",

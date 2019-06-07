@@ -33,7 +33,7 @@ namespace HomeLi
             services.ConfigureIISIntegration();
             services.ConfigureLoggerService();
             services.ConfigureRepositoryWrapper();
-            services.AddMvc();
+            services.AddMvcCore().AddDataAnnotations().AddJsonFormatters();
         }
 
         /// <summary>

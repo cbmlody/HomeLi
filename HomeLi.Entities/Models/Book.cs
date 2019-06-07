@@ -21,7 +21,7 @@ namespace HomeLi.Entities.Models
 
         public Guid? SerieId { get; set; }
 
-        public virtual Serie Serie { get; set; }
+        public virtual Series Series { get; set; }
 
         [StringLength(13, MinimumLength = 10, ErrorMessage = "ISBN number must have at least 10 numbers and up to 13")]
         public string ISBN { get; set; }

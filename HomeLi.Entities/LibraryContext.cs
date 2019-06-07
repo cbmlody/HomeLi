@@ -12,6 +12,6 @@ namespace HomeLi.Entities
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
-        public DbSet<Serie> Series { get; set; }
+        public DbSet<Series> Series { get; set; }
     }
 }
