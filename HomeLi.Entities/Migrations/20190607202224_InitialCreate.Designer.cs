@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeLi.Entities.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20180916193924_InitialCreate")]
+    [Migration("20190607202224_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -56,6 +56,8 @@ namespace HomeLi.Entities.Migrations
 
                     b.Property<Guid?>("SerieId");
 
+                    b.Property<Guid?>("SeriesId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(120);
@@ -64,12 +66,12 @@ namespace HomeLi.Entities.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("SerieId");
+                    b.HasIndex("SeriesId");
 
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("HomeLi.Entities.Models.Serie", b =>
+            modelBuilder.Entity("HomeLi.Entities.Models.Series", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,12 +97,12 @@ namespace HomeLi.Entities.Migrations
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("HomeLi.Entities.Models.Serie", "Serie")
+                    b.HasOne("HomeLi.Entities.Models.Series", "Series")
                         .WithMany("Books")
-                        .HasForeignKey("SerieId");
+                        .HasForeignKey("SeriesId");
                 });
 
-            modelBuilder.Entity("HomeLi.Entities.Models.Serie", b =>
+            modelBuilder.Entity("HomeLi.Entities.Models.Series", b =>
                 {
                     b.HasOne("HomeLi.Entities.Models.Author", "Author")
                         .WithMany()

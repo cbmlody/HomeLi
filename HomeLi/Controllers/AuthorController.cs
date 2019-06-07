@@ -27,7 +27,7 @@ namespace HomeLi.Controllers
             {
                 var authors = _repository.Author.GetAllAuthors();
 
-                _logger.LogInfo($"Returned all authors from database");
+                _logger.LogInfo("Returned all authors from database");
 
                 return Ok(authors);
             }
@@ -58,7 +58,7 @@ namespace HomeLi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong insisde GetAuthorById action: {ex.Message}");
+                _logger.LogError($"Something went wrong inside GetAuthorById action: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -129,7 +129,7 @@ namespace HomeLi.Controllers
 
                 if (!ModelState.IsValid)
                 {
-                    _logger.LogError("Invalid author object sent from clinet.");
+                    _logger.LogError("Invalid author object sent from client.");
                     return BadRequest("Invalid model object");
                 }
 
@@ -137,7 +137,7 @@ namespace HomeLi.Controllers
 
                 if (dbAuthor.IsEmptyObject())
                 {
-                    _logger.LogError($"Author with id: {id}, has not been foud in database.");
+                    _logger.LogError($"Author with id: {id}, has not been found in database.");
                     return NotFound();
                 }
 

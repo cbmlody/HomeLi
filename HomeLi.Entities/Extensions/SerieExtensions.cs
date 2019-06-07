@@ -4,10 +4,10 @@ namespace HomeLi.Entities.Extensions
 {
     public static class SerieExtensions
     {
-        public static void Map(this Serie dbSerie, Serie serie)
+        public static void Map(this Series dbSeries, Series series)
         {
-            dbSerie.AuthorId = serie.AuthorId;
-            dbSerie.Title = serie.Title;
+            dbSeries.AuthorId = series.AuthorId;
+            dbSeries.Title = series.Title;
         }
     }
 }

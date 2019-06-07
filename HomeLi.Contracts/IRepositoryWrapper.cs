@@ -19,11 +19,11 @@
         IBookRepository Book { get; }
 
         /// <summary>
-        /// Gets the serie repository.
+        /// Gets the series repository.
         /// </summary>
         /// <value>
-        /// The serie repository.
+        /// The series repository.
         /// </value>
-        ISerieRepository Serie { get; }
+        ISeriesRepository Series { get; }
     }
 }

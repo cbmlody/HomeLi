@@ -8,7 +8,7 @@ namespace HomeLi.Repository
         private readonly LibraryContext _libraryContext;
         private IAuthorRepository _author;
         private IBookRepository _book;
-        private ISerieRepository _serie;
+        private ISeriesRepository _series;
 
         public IAuthorRepository Author
         {
@@ -34,15 +34,15 @@ namespace HomeLi.Repository
             }
         }
 
-        public ISerieRepository Serie
+        public ISeriesRepository Series
         {
             get
             {
-                if (_serie == null)
+                if (_series == null)
                 {
-                    _serie = new SerieRepository(_libraryContext);
+                    _series = new SeriesRepository(_libraryContext);
                 }
-                return _serie;
+                return _series;
             }
         }
 

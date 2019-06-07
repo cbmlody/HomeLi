@@ -11,7 +11,7 @@ namespace HomeLi.Entities.ExtendedModels
         public Guid AuthorId { get; set; }
         public virtual Author Author { get; set; }
         public Guid? SerieId { get; set; }
-        public virtual Serie Serie { get; set; }
+        public virtual Series Series { get; set; }
         public string ISBN { get; set; }
 
         public BookExtended()
