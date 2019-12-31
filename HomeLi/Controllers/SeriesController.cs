@@ -1,15 +1,14 @@
 ﻿using HomeLi.Contracts;
 using HomeLi.Entities.Extensions;
 using HomeLi.Entities.Models;
-
 using Microsoft.AspNetCore.Mvc;
-
 using System;
 
 namespace HomeLi.Controllers
 {
-    [Route("api/series")]
-    public class SeriesController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class SeriesController : ControllerBase
     {
         private readonly ILoggerManager _logger;
         private readonly IRepositoryWrapper _repository;
