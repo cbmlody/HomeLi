@@ -16,8 +16,8 @@ namespace HomeLi.Extensions
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                options.AddPolicy("MyCorsPolicy",
+                    builder => builder.SetIsOriginAllowedToAllowWildcardSubdomains()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
