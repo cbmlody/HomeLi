@@ -10,6 +10,7 @@ namespace HomeLi.Entities.Extensions
             dbAuthor.MiddleName = author.MiddleName;
             dbAuthor.LastName = author.LastName;
             dbAuthor.Books = author.Books;
+            dbAuthor.Series = author.Series;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HomeLi.Entities.Models;
 
 using System;
+using System.Collections.Generic;
 
 namespace HomeLi.Entities.ExtendedModels
 {
@@ -8,11 +9,12 @@ namespace HomeLi.Entities.ExtendedModels
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public Guid AuthorId { get; set; }
-        public virtual Author Author { get; set; }
-        public Guid? SerieId { get; set; }
-        public virtual Series Series { get; set; }
-        public string ISBN { get; set; }
+        public string ISBN10 { get; set; }
+        public string ISBN13 { get; set; }
+        public Series Series {get; set;}
+
+        public IEnumerable<Author> Authors { get; set; }
+        public IEnumerable<Category> Categories {get; set;}
 
         public BookExtended()
         {
@@ -22,9 +24,11 @@ namespace HomeLi.Entities.ExtendedModels
         {
             Id = book.Id;
             Title = book.Title;
-            AuthorId = book.AuthorId;
-            SerieId = book.SerieId;
-            ISBN = book.ISBN;
+            ISBN10 = book.ISBN10;
+            ISBN13 = book.ISBN13;
+            Series = book.Series;
+            Authors = book.Authors;
+            Categories = book.Categories;
         }
     }
 }

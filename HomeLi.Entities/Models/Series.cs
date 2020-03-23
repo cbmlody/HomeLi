@@ -8,7 +8,7 @@ namespace HomeLi.Entities.Models
     public class Series : IEntity
     {
         [Key]
-        [Column("SerieId")]
+        [Column("SeriesID")]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Series must have a title.")]
@@ -17,9 +17,6 @@ namespace HomeLi.Entities.Models
 
         public virtual ICollection<Book> Books { get; set; }
 
-        [Required(ErrorMessage = "Series must have an Author")]
-        public Guid AuthorId { get; set; }
-
-        public Author Author { get; set; }
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }

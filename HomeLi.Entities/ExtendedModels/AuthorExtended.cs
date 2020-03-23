@@ -13,6 +13,7 @@ namespace HomeLi.Entities.ExtendedModels
         public string LastName { get; set; }
 
         public IEnumerable<Book> Books { get; set; }
+        public IEnumerable<Series> Series { get; set; }
 
         public AuthorExtended()
         {
@@ -24,6 +25,8 @@ namespace HomeLi.Entities.ExtendedModels
             FirstName = author.FirstName;
             MiddleName = author.MiddleName;
             LastName = author.LastName;
+            Books = author.Books;
+            Series = author.Series;
         }
     }
 }

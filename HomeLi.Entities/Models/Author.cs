@@ -15,7 +15,7 @@ namespace HomeLi.Entities.Models
         [StringLength(60, ErrorMessage = "First name can't be longer than 60 chars.")]
         public string FirstName { get; set; }
 
-        [StringLength(60, ErrorMessage = "Last name can't be longer than 60 chars.")]
+        [StringLength(60, ErrorMessage = "Middle name can't be longer than 60 chars.")]
         public string MiddleName { get; set; }
 
         [Required(ErrorMessage = "Last name is required.")]
@@ -23,5 +23,6 @@ namespace HomeLi.Entities.Models
         public string LastName { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<Series> Series { get; set; }
     }
 }
