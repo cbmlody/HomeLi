@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HomeLi.Contracts
+namespace HomeLi.Contracts.Repositories
 {
     public interface IBookRepository : IRepositoryBase<Book>
     {
@@ -18,7 +18,7 @@ namespace HomeLi.Contracts
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Book GetBookById(Guid id);
+        Book GetBookBy(Guid id);
 
         /// <summary>
         /// Creates the book.

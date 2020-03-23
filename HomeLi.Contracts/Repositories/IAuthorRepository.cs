@@ -4,7 +4,7 @@ using HomeLi.Entities.Models;
 using System;
 using System.Collections.Generic;
 
-namespace HomeLi.Contracts
+namespace HomeLi.Contracts.Repositories
 {
     public interface IAuthorRepository : IRepositoryBase<Author>
     {
@@ -19,7 +19,7 @@ namespace HomeLi.Contracts
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Author GetAuthorById(Guid id);
+        Author GetAuthorBy(Guid id);
 
         /// <summary>
         /// Gets the author with details.

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HomeLi.Contracts
+namespace HomeLi.Contracts.Repositories
 {
     public interface ISeriesRepository : IRepositoryBase<Series>
     {
@@ -18,7 +18,7 @@ namespace HomeLi.Contracts
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Series GetSeriesById(Guid id);
+        Series GetSeriesBy(Guid id);
 
         /// <summary>
         /// Creates the series.
