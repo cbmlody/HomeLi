@@ -17,7 +17,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        User GetUserBy(Guid id);
+        User GetUserById(Guid id);
 
         /// <summary>
         /// Creates the user.

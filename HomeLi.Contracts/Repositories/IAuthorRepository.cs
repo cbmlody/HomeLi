@@ -19,7 +19,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Author GetAuthorBy(Guid id);
+        Author GetAuthorById(Guid id);
 
         /// <summary>
         /// Gets the author with details.

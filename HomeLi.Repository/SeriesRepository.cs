@@ -1,4 +1,4 @@
-﻿using HomeLi.Contracts;
+﻿using HomeLi.Contracts.Repositories;
 using HomeLi.Entities;
 using HomeLi.Entities.Extensions;
 using HomeLi.Entities.Models;
@@ -18,8 +18,8 @@ namespace HomeLi.Repository
         public IEnumerable<Series> GetAllSeries()
         {
             return FindAll()
-                .OrderBy(series => series.Author.LastName)
-                .ThenBy(series => series.Title);
+                .OrderBy(series => series.Title)
+                .ThenBy(series => series.Authors.Select(a => a.LastName));
         }
 
         public Series GetSeriesById(Guid id)
@@ -45,7 +45,8 @@ namespace HomeLi.Repository
 
         public void DeleteSeries(Series series)
         {
-            throw new NotImplementedException();
+            Delete(series);
+            Save();
         }
     }
 }

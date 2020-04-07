@@ -17,7 +17,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">Library id.</param>
         /// <returns></returns>
-        Library GetLibraryBy(Guid id);
+        Library GetLibraryById(Guid id);
 
         /// <summary>
         /// Create new library.

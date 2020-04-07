@@ -18,7 +18,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Series GetSeriesBy(Guid id);
+        Series GetSeriesById(Guid id);
 
         /// <summary>
         /// Creates the series.

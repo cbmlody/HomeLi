@@ -18,7 +18,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Book GetBookBy(Guid id);
+        Book GetBookById(Guid id);
 
         /// <summary>
         /// Creates the book.

@@ -1,4 +1,4 @@
-﻿using HomeLi.Contracts;
+﻿using HomeLi.Contracts.Repositories;
 using HomeLi.Entities;
 using HomeLi.Entities.ExtendedModels;
 using HomeLi.Entities.Extensions;
@@ -34,7 +34,15 @@ namespace HomeLi.Repository
             return new AuthorExtended(GetAuthorById(authorId))
             {
                 Books = LibraryContext.Books
-                    .Where(b => b.AuthorId == authorId)
+                    .Where(b => b.Authors
+                        .Select(a => a.Id)
+                        .Contains(authorId))
+                    .ToArray(),
+                Series = LibraryContext.Series
+                    .Where(s => s.Authors
+                        .Select(a => a.Id)
+                        .Contains(authorId))
+                    .ToArray()
             };
         }
 

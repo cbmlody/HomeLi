@@ -1,4 +1,4 @@
-﻿using HomeLi.Contracts;
+﻿using HomeLi.Contracts.Repositories;
 using HomeLi.Entities;
 using HomeLi.Entities.Extensions;
 using HomeLi.Entities.Models;
@@ -18,8 +18,8 @@ namespace HomeLi.Repository
         public IEnumerable<Book> GetAllBooks()
         {
             return FindAll()
-                .OrderBy(book => book.Author.LastName)
-                .ThenBy(book => book.Title);
+                .OrderBy(book => book.Title)
+                .ThenBy(book => book.Authors.Select(a => a.LastName));
         }
 
         public Book GetBookById(Guid id)

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using HomeLi.Contracts;
+﻿using HomeLi.Contracts;
+using HomeLi.Contracts.Repositories;
 using HomeLi.Controllers;
 using HomeLi.Entities.ExtendedModels;
 using HomeLi.Entities.Models;
+
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+
 using Moq;
 using Xunit;
 using Xunit.Abstractions;
@@ -15,6 +18,8 @@ namespace HomeLi.Tests.Repositories
 {
     public class AuthorControllerTests : IDisposable
     {
+        private bool disposed = false;
+
         private Mock<ILoggerManager> _logger;
         private Mock<IRepositoryWrapper> _wrapper;
         private Mock<IAuthorRepository> _repository;
@@ -28,11 +33,29 @@ namespace HomeLi.Tests.Repositories
             _output = output;
         }
 
+        ~AuthorControllerTests()
+        {
+            this.Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    _logger = null;
+                    _wrapper = null;
+                    _repository = null;
+                }
+                disposed = true;
+            }
+        }
+
         public void Dispose()
         {
-            _logger = null;
-            _wrapper = null;
-            _repository = null;
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         [Fact]
@@ -302,7 +325,7 @@ namespace HomeLi.Tests.Repositories
         public void CreateAuthor_RepositoryMethodNotImplemented_InternalServerErrorStatusCode()
         {
             // Arrange
-            var testAuthor = new Author();;
+            var testAuthor = new Author();
             _repository.Setup(x => x.CreateAuthor(testAuthor)).Throws(new NotImplementedException());
             _wrapper.Setup(x => x.Author).Returns(_repository.Object);
 

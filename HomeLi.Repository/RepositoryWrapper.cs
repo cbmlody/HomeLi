@@ -1,4 +1,5 @@
 ﻿using HomeLi.Contracts;
+using HomeLi.Contracts.Repositories;
 using HomeLi.Entities;
 
 namespace HomeLi.Repository
@@ -9,6 +10,9 @@ namespace HomeLi.Repository
         private IAuthorRepository _author;
         private IBookRepository _book;
         private ISeriesRepository _series;
+        private IUserRepository _users;
+        private ICategoryRepository _categories;
+        private ILibraryRepository _libraries;
 
         public IAuthorRepository Author
         {
@@ -43,6 +47,42 @@ namespace HomeLi.Repository
                     _series = new SeriesRepository(_libraryContext);
                 }
                 return _series;
+            }
+        }
+
+        public ICategoryRepository Categories
+        {
+            get
+            {
+                if (_categories == null)
+                {
+                    _categories = new CategoryRepository(_libraryContext);
+                }
+                return _categories;
+            }
+        }
+
+        public IUserRepository Users
+        {
+            get
+            {
+                if (_users == null)
+                {
+                    _users = new UserRepository(_libraryContext);
+                }
+                return _users;
+            }
+        }
+
+        public ILibraryRepository Libraries
+        {
+            get
+            {
+                if (_libraries == null)
+                {
+                    _libraries = new LibraryRepository(_libraryContext);
+                }
+                return _libraries;
             }
         }
 

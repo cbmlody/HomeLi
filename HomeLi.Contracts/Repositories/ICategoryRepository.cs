@@ -18,7 +18,7 @@ namespace HomeLi.Contracts.Repositories
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        Category GetCategoryBy(Guid id);
+        Category GetCategoryById(Guid id);
 
         /// <summary>
         /// Gets category with extended details.
